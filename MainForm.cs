@@ -34,7 +34,7 @@ namespace PhoneBridge
             StartPosition = FormStartPosition.CenterScreen;
             Font = new Font("Segoe UI", 9F);
             BackColor = Color.FromArgb(245, 247, 250);
-            Icon = SystemIcons.Application;
+            Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 
             BuildInterface();
             Shown += async delegate

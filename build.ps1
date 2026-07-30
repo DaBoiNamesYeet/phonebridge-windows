@@ -19,7 +19,8 @@ $references = @(
     "/reference:System.IO.Compression.FileSystem.dll"
 )
 
-& $compiler /nologo /target:winexe /optimize+ /platform:anycpu /win32manifest:"$projectDir\app.manifest" `
+& $compiler /nologo /target:winexe /optimize+ /platform:anycpu `
+    /win32manifest:"$projectDir\app.manifest" /win32icon:"$projectDir\PhoneBridge.ico" `
     $references /out:"$buildDir\PhoneBridge.exe" `
     "$projectDir\Program.cs" "$projectDir\Core.cs" "$projectDir\MainForm.cs"
 if ($LASTEXITCODE -ne 0) { throw "PhoneBridge build failed." }
