@@ -45,6 +45,9 @@ namespace PhoneBridge
             Expect(args.Contains("--no-audio"), "disables audio");
             Expect(args.Contains("--always-on-top"), "sets always-on-top");
             Expect(!args.Contains("--turn-screen-off"), "does not set disabled option");
+
+            var unlimitedArgs = PhoneBridgeCore.BuildScrcpyArguments(null, 0, false, false, true, false);
+            Expect(!unlimitedArgs.Contains("--max-size"), "omits size limit for unlimited resolution");
         }
 
         private static void Expect(bool condition, string name)

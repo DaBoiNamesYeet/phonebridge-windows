@@ -209,7 +209,7 @@ namespace PhoneBridge
             AddFieldLabel(card, "Max resolution", 18, 31);
             maxSize.DropDownStyle = ComboBoxStyle.DropDownList;
             maxSize.Items.AddRange(new object[] { "Unlimited", "1280", "1600", "1920", "2560" });
-            maxSize.SelectedItem = "1920";
+            maxSize.SelectedItem = "Unlimited";
             maxSize.Location = new Point(18, 51);
             maxSize.Size = new Size(110, 25);
 
@@ -288,7 +288,7 @@ namespace PhoneBridge
                     throw new InvalidOperationException(
                         "That phone is not authorised. Unlock it and approve the USB debugging prompt, then refresh.");
 
-                var selectedSize = maxSize.SelectedItem == null ? "1920" : maxSize.SelectedItem.ToString();
+                var selectedSize = maxSize.SelectedItem == null ? "Unlimited" : maxSize.SelectedItem.ToString();
                 var size = selectedSize == "Unlimited" ? 0 : Int32.Parse(selectedSize);
                 var args = PhoneBridgeCore.BuildScrcpyArguments(
                     selected == null ? null : selected.Serial,
